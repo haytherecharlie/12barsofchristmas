@@ -45,7 +45,7 @@ const IndexPage = () => (
       <meta property='og:url' content='https://barsofchristmas.firebaseapp.com/' />
       <meta property='og:type' content='website' />
       <meta property='og:description' content="Tis the season to commence our drinkin'." />
-
+      <meta property='og:image' content="https://raw.githubusercontent.com/haytherecharlie/12barsofchristmas/master/src/assets/images/poster.jpg" />
     </Helmet>
     <div style={imageContainerStyle}>
       <img style={imageStyle} src={poster} alt="12 bars" />
