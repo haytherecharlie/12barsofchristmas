@@ -1,4 +1,6 @@
+import "../assets/global.css"
 import React from "react"
+import Helmet from 'react-helmet'
 import poster from "../assets/images/poster.jpg"
 
 const containerStyle = {
@@ -11,11 +13,15 @@ const containerStyle = {
   justifyContent: `stretch`,
 }
 
-const imageStyle = {
+const imageContainerStyle = {
   flex: 1,
   display: `flex`,
   alignItems: `center`,
   justifyContent: `center`,
+}
+
+const imageStyle = {
+  width: `100%`
 }
 
 const footerStyle = {
@@ -33,8 +39,16 @@ const footerStyle = {
 
 const IndexPage = () => (
   <div style={containerStyle}>
-    <div style={imageStyle}>
-      <img src={poster} alt="12 bars" />
+    <Helmet>
+      <title>12 Bars of Xmas | 2019</title>
+      <meta property='og:title' content='12 Bars of Christmas London | 2019' />
+      <meta property='og:url' content='https://barsofchristmas.firebaseapp.com/' />
+      <meta property='og:type' content='website' />
+      <meta property='og:description' content="Tis the season to commence our drinkin'." />
+
+    </Helmet>
+    <div style={imageContainerStyle}>
+      <img style={imageStyle} src={poster} alt="12 bars" />
     </div>
     <footer style={footerStyle}>
       For More Information Text Charlie At: (438) 880-5966.
