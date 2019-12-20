@@ -1,6 +1,16 @@
+@font-face {
+  font-family: 'Cocogoose';
+  src: url('./fonts/cocogoose.otf');
+}
+
 html, body, #___gatsby {
   margin: 0;
-  height: 100vh;
+  min-height: 100vh;
   width: 100vw;
-  overflow: hidden;
+  background: #F8F8F8;
+  font-family: Cocogoose, Helvetica, sans-serif;
+}
+
+* {
+  box-sizing: border-box;
 }
