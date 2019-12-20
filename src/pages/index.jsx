@@ -1,5 +1,5 @@
 import "../assets/global.css"
-import React, { useState } from "react"
+import React, { useEffect, useState } from "react"
 import Helmet from "react-helmet"
 import ImageUpload from "../components/ImageUpload"
 import ImageGallery from "../components/ImageGallery"
@@ -19,6 +19,10 @@ const containerStyle = {
 
 const IndexPage = () => {
   const [loading, setLoading] = useState(true)
+
+  useEffect(() => {
+    scrollTo(0, 0)
+  }, [])
 
   return (
     <div style={containerStyle}>

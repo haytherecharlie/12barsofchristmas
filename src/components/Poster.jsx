@@ -18,6 +18,12 @@ const Image = styled("img")({
 const Title = styled("span")({
   fontWeight: 100,
   marginTop: '-40px',
+  color: `#27b34d`
+})
+
+const SubTitle = styled("span")({
+  fontWeight: 100,
+  fontSize: 25,
   marginBottom: `40px`,
   color: `#27b34d`
 })
@@ -27,6 +33,7 @@ const Poster = () => {
     <Wrapper>
       <Image src={poster} alt="12 bars" />
       <Title>'Tis the season for drinkin'</Title>
+      <SubTitle>Saturday Dec 21st 2019</SubTitle>
     </Wrapper>
   )
 }

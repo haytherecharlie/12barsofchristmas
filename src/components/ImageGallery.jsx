@@ -10,6 +10,7 @@ const Gallery = styled("div")({
   alignItems: "center",
   justifyContent: "center",
   padding: `10px 0`,
+  marginBottom: 200
 })
 
 const Title = styled("span")({
