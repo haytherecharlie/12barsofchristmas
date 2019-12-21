@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react"
 import db from "../services/firebase"
 import styled from "styled-components"
-import Modal from '../components/Modal'
+import Modal from "../components/Modal"
 
 const Gallery = styled("div")({
   width: "100%",
@@ -10,7 +10,8 @@ const Gallery = styled("div")({
   alignItems: "center",
   justifyContent: "center",
   padding: `10px 0`,
-  marginBottom: 200
+  marginTop: -30,
+  marginBottom: 200,
 })
 
 const Title = styled("span")({
@@ -44,6 +45,16 @@ const ImageBox = styled("div")({
   background: "#fff",
 })
 
+const MapButton = styled("a")({
+  background: "#CE1C00",
+  padding: `10px 70px`,
+  border: `2px solid #27b34d`,
+  borderRadius: `20px`,
+  color: `#fff`,
+  textDecoration: 'none',
+  marginBottom: 20
+})
+
 const ImageGallery = ({ setLoading }) => {
   const [thumbs, setThumbs] = useState([])
   const [selected, setSelected] = useState(null)
@@ -62,6 +73,7 @@ const ImageGallery = ({ setLoading }) => {
 
   return (
     <Gallery>
+      <MapButton href="/map">View Map</MapButton>
       <Title>Shared Photos</Title>
       <GalleryPhotos>
         {thumbs.map((thumb, i) => (
