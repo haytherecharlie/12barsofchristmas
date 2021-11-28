@@ -3,7 +3,7 @@ import styled from "styled-components"
 import db from "../services/firebase"
 import SendIcon from "react-ionicons/lib/MdCheckmark"
 import CancelIcon from "react-ionicons/lib/MdClose"
-import CameraIcon from "react-ionicons/lib/IosCamera"
+import CameraIcon from "react-ionicons/lib/IosCameraOutline"
 import imagenation from "imagenation"
 
 const Wrapper = styled("div")({
@@ -21,9 +21,8 @@ const SelectImageInput = styled("input")({
 
 const SelectImageLabel = styled("label")({
   zIndex: 9999,
-  background: `rgb(0,126,26)`,
-  background: `radial-gradient(circle, rgba(0,126,26,1) 0%, #27b34d 100%)`,
-  padding: "10px 14px",
+  background: `#27b34d`,
+  padding: "9px 14px",
   boxShadow: '0px 0px 5px rgba(0,0,0,0.6)',
   border: '5px solid #fff',
   position: "fixed",
@@ -103,7 +102,7 @@ const ImageUpload = () => {
   return (
     <Wrapper>
       <SelectImageLabel image={image}>
-        <SelectImageInput type="file" onChange={orientImage} accept="image/*" />
+        <SelectImageInput type="file" onChange={orientImage} accept="image/*" capture="camera" />
         <CameraIcon color="#fff" fontSize="50px" />
       </SelectImageLabel>
 

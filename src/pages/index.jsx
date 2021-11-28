@@ -35,7 +35,7 @@ const IndexPage = () => {
         <meta property="og:image" content="https://raw.githubusercontent.com/haytherecharlie/12barsofchristmas/master/src/assets/images/poster.jpg" />
       </Helmet>
       <Loading loading={loading} />
-      <Poster />
+      {/* <Poster /> */}
       <Header />
       <ImageUpload />
       <ImageGallery setLoading={setLoading} />
