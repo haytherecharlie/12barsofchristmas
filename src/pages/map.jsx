@@ -24,8 +24,7 @@ const BackButton = styled("a")({
 const Map = styled("img")(({ wide }) => (wide ? { height: `100vh` } : { width: `100vw` }))
 
 const NotFoundPage = () => {
-  const { innerWidth, innerHeight } = window
-  const wide = innerWidth > innerHeight
+  const wide = typeof window !== 'undefined' ? window.innerWidth > window.innerHeight: 0
   return (
     <Wrapper>
       <BackButton href="/">&lsaquo; Go Back</BackButton>
