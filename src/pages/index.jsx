@@ -27,8 +27,8 @@ const IndexPage = () => {
   return (
     <div style={containerStyle}>
       <Helmet>
-        <title>12 Bars of Xmas | 2019</title>
-        <meta property="og:title" content="12 Bars of Christmas London | 2019" />
+        <title>12 Bars of Xmas | 2021</title>
+        <meta property="og:title" content="12 Bars of Christmas London | 2021" />
         <meta property="og:url" content="https://barsofchristmas.firebaseapp.com/" />
         <meta property="og:type" content="website" />
         <meta property="og:description" content="Tis the season to commence our drinkin'." />

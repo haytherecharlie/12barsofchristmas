@@ -4,7 +4,7 @@ import db from "../services/firebase"
 import SendIcon from "react-ionicons/lib/MdCheckmark"
 import CancelIcon from "react-ionicons/lib/MdClose"
 import CameraIcon from "react-ionicons/lib/IosCameraOutline"
-import imagenation from "imagenation"
+import imagenation from "../libs/imagenation"
 
 const Wrapper = styled("div")({
   width: "100%",
@@ -78,8 +78,8 @@ const ImageUpload = () => {
 
   const orientImage = async ({ target }) => {
     const uploadedPhoto = target.files[0]
-    setImage(await imagenation(uploadedPhoto, 400))
-    setThumbnail(await imagenation(uploadedPhoto, 100))
+    setImage(await imagenation(uploadedPhoto, 3000))
+    setThumbnail(await imagenation(uploadedPhoto, 200))
   }
 
   const handleCancel = async () => {

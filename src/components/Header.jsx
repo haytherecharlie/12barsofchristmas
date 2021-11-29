@@ -41,7 +41,7 @@ export default function Header() {
     }
   }
 
-  const date = "2019-12-21T20:00:00"
+  const date = "2021-12-21T20:00:00"
   return (
     <S.Wrapper>
       <Countdown date={date} renderer={renderer} />

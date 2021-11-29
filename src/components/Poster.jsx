@@ -33,7 +33,7 @@ const Poster = () => {
     <Wrapper>
       <Image src={poster} alt="12 bars" />
       <Title>'Tis the season for drinkin'</Title>
-      <SubTitle>Saturday Dec 21st 2019</SubTitle>
+      <SubTitle>Saturday Dec 21st 2021</SubTitle>
     </Wrapper>
   )
 }
