@@ -20,14 +20,11 @@ export default function IndexPage() {
       <Helmet>
         <title>12 Bars of Xmas | 2021</title>
         <meta name="theme-color" content="#ff2353" />
-        <meta property="og:title" content="12 Bars of Christmas London | 2021" />
+        <meta property="og:title" content="The 12 Bars of Xmas | 2021" />
         <meta property="og:url" content="https://twelvebars.web.app/" />
         <meta property="og:type" content="website" />
-        <meta property="og:description" content="Tis the season to commence our drinkin'." />
-        <meta
-          property="og:image"
-          content="https://raw.githubusercontent.com/rcharleshay/twelvebars-com/master/src/assets/images/poster.jpg"
-        />
+        <meta property="og:description" content="Tis' the season fer drinkin'." />
+        <meta property="og:image" content="/images/web-preview.jpg" />
       </Helmet>
       <Loading loading={loading} />
       <Header />

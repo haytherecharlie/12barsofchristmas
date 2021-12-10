@@ -18,7 +18,7 @@ export default function useNaughtyList() {
   async function listenToAttendees(snap) {
     const snapList = []
     snap.forEach(data => snapList.push({ id: data.id, ...data.data() }))
-    setList(snapList.reverse())
+    setList(snapList.sort(() => .5 - Math.random()))
   }
 
   useEffect(() => {

@@ -11,15 +11,9 @@ export default function NaughtyList() {
         <h2>{`🎄THE NAUGHTY LIST🎄`}</h2>
         <S.AddAttendee>
           <input type="text" placeholder="YOUR NAME" ref={inputRef} />
-          <button type="button" onClick={addAttendee}>
-            RSVP
-          </button>
+          <button type="button" onClick={addAttendee}>{`RSVP`}</button>
         </S.AddAttendee>
-        <ul>
-          {list.map(person => (
-            <li key={person.id}>{person.name}</li>
-          ))}
-        </ul>
+        <ul>{list.map((p, i) => <li key={p.id}>{`${i + 1}. ${p.name}`}</li>)}</ul>
       </S.NaughtyList>
     </S.Wrapper>
   )
@@ -32,6 +26,7 @@ const S = {
     flex-direction: column;
     align-items: center;
     justify-content: center;
+    padding-bottom: 50px;
   `,
   NaughtyList: styled.div`
     & > h2 {
