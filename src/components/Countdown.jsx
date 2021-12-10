@@ -28,11 +28,10 @@ export default function Countdown({ date }) {
 
 const S = {
   Wrapper: styled.div`
-    height: 100%;
     display: flex;
-    flex: 1;
     align-items: center;
     justify-content: center;
+    padding-top: 50px;
   `,
   Countdown: styled.div`
     color: #0da594;

@@ -6,6 +6,7 @@ import ImageGallery from "../components/ImageGallery"
 import Header from "../components/Header"
 import Loading from "../components/Loading"
 import Countdown from "../components/Countdown"
+import NaughtyList from "../components/NaughtyList"
 import useStartDate from "../hooks/useStartDate"
 import useLoading from "../hooks/useLoading"
 
@@ -36,7 +37,10 @@ export default function IndexPage() {
           <TakePhoto />
         </Fragment>
       ) : (
-        <Countdown date={startDate} />
+        <S.Section direction="column">
+          <Countdown date={startDate} />
+          <NaughtyList />
+        </S.Section>
       )}
     </S.Wrapper>
   )
@@ -64,9 +68,18 @@ const S = {
   Wrapper: styled.div`
     height: 100vh;
     width: 100vw;
+    padding-top: 70px;
     display: flex;
     flex: 1 0 0px;
-    align-items: flex-start;
+    align-items: stretch;
     justify-content: stretch;
+  `,
+  Section: styled.div`
+    width: 100vw;
+    flex: 1
+    display: flex;
+    flex-direction: ${p => p.direction};
+    align-items: center;
+    justify-content: center;
   `,
 }
