@@ -1,56 +1,36 @@
 import React, { useState, useEffect } from "react"
 import styled from "styled-components"
-import db from "../services/firebase"
+import useGetHiResPhoto from "../hooks/useGetHiResPhoto"
 
-const Wrapper = styled("div")({
-  display: p => (p.show ? "flex" : "none"),
-  alignItems: "center",
-  justifyContent: "center",
-  position: "fixed",
-  height: `100vh`,
-  width: `100vw`,
-  background: `rgb(0,0,0,0.4)`,
-  top: 0,
-  left: 0,
-  zIndex: 9999999,
-})
-
-const ModalBody = styled("div")({
-  maxWidth: `90%`,
-  maxHeight: `90%`,
-  background: `#FFF`,
-  borderRadius: 20,
-  padding: 20,
-})
-
-const Modal = ({ selected, setSelected }) => {
-  const [image, setImage] = useState(undefined)
-
-  const getPhoto = async () => {
-    const photo = await db
-      .collection("photos")
-      .doc(`${selected}`)
-      .get()
-    setImage(photo.data())
-  }
-
-  useEffect(() => {
-    if (selected) {
-      getPhoto()
-    }
-  }, [selected])
+export default function Modal({ selected, setSelected }) {
+  const [image, closeImage] = useGetHiResPhoto(selected, setSelected)
 
   return (
-    <Wrapper
-      show={!!selected}
-      onClick={() => {
-        setSelected(null)
-        setImage(undefined)
-      }}
-    >
-      <ModalBody>{image ? <img src={image.data} width='100%' alt="cool image" /> : <div>loading</div>}</ModalBody>
-    </Wrapper>
+    <S.Wrapper show={!!selected ? "flex" : "none"} onClick={closeImage}>
+      <S.Modal>{image && <img src={image.data} width="100%" alt="cool image" />}</S.Modal>
+    </S.Wrapper>
   )
 }
 
-export default Modal
+const S = {
+  Wrapper: styled.div`
+    display: ${p => p.show};
+    align-items: center;
+    justify-content: center;
+    position: fixed;
+    height: 100vh;
+    width: 100vw;
+    background: rgb(0, 0, 0, 0.4);
+    top: 0;
+    left: 0;
+    z-index: 9999999;
+  `,
+  Modal: styled.div`
+    margin-top: -50px;
+    max-width: 90%;
+    max-height: 90%;
+    background: #fff;
+    border-radius: 20px;
+    padding: 20px;
+  `,
+}

@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react"
 import styled from "styled-components"
-import db from "../services/firebase"
+import db from "../api/firebase"
 
 const Wrapper = styled("div")({
   height: "100vh",

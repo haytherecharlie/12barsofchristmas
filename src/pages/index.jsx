@@ -1,46 +1,72 @@
-import "../assets/global.css"
-import React, { useEffect, useState } from "react"
+import React, { Fragment } from "react"
+import styled, { createGlobalStyle } from "styled-components"
 import Helmet from "react-helmet"
-import ImageUpload from "../components/ImageUpload"
+import TakePhoto from "../components/TakePhoto"
 import ImageGallery from "../components/ImageGallery"
 import Header from "../components/Header"
 import Loading from "../components/Loading"
-import Poster from "../components/Poster"
+import Countdown from "../components/Countdown"
+import useStartDate from "../hooks/useStartDate"
+import useLoading from "../hooks/useLoading"
 
-const containerStyle = {
-  paddingTop: "84px",
-  minHeight: `100vh`,
-  width: `100vw`,
-  display: `flex`,
-  flexDirection: `column`,
-  alignItems: `center`,
-  justifyContent: `stretch`,
-}
-
-const IndexPage = () => {
-  const [loading, setLoading] = useState(true)
-
-  useEffect(() => {
-    scrollTo(0, 0)
-  }, [])
+export default function IndexPage() {
+  const [started, startDate] = useStartDate()
+  const [loading, setLoading] = useLoading()
 
   return (
-    <div style={containerStyle}>
+    <S.Wrapper>
+      <S.GlobalStyle />
       <Helmet>
         <title>12 Bars of Xmas | 2021</title>
+        <meta name="theme-color" content="#ff2353" />
         <meta property="og:title" content="12 Bars of Christmas London | 2021" />
-        <meta property="og:url" content="https://barsofchristmas.firebaseapp.com/" />
+        <meta property="og:url" content="https://twelvebars.web.app/" />
         <meta property="og:type" content="website" />
         <meta property="og:description" content="Tis the season to commence our drinkin'." />
-        <meta property="og:image" content="https://raw.githubusercontent.com/haytherecharlie/12barsofchristmas/master/src/assets/images/poster.jpg" />
+        <meta
+          property="og:image"
+          content="https://raw.githubusercontent.com/rcharleshay/twelvebars-com/master/src/assets/images/poster.jpg"
+        />
       </Helmet>
       <Loading loading={loading} />
-      {/* <Poster /> */}
       <Header />
-      <ImageUpload />
-      <ImageGallery setLoading={setLoading} />
-    </div>
+      {started ? (
+        <Fragment>
+          <ImageGallery setLoading={setLoading} />
+          <TakePhoto />
+        </Fragment>
+      ) : (
+        <Countdown date={startDate} />
+      )}
+    </S.Wrapper>
   )
 }
 
-export default IndexPage
+const S = {
+  GlobalStyle: createGlobalStyle`
+  @font-face {
+    font-family: 'Cocogoose';
+    src: url('/fonts/cocogoose.otf');
+  }
+  
+  html, body, #___gatsby {
+    margin: 0;
+    min-height: 100vh;
+    width: 100vw;
+    background: #F8F8F8;
+    font-family: Cocogoose, Helvetica, sans-serif;
+  }
+  
+  * {
+    box-sizing: border-box;
+  }
+  `,
+  Wrapper: styled.div`
+    height: 100vh;
+    width: 100vw;
+    display: flex;
+    flex: 1 0 0px;
+    align-items: flex-start;
+    justify-content: stretch;
+  `,
+}
