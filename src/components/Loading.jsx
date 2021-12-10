@@ -1,11 +1,10 @@
 import React from "react"
 import styled from "styled-components"
-import wreath from "../assets/images/wreath.png"
 
 export default function Loading({ loading }) {
   return (
     <S.Wrapper show={loading ? "flex" : "none"}>
-      <S.Wreath src={wreath} alt="loading" />
+      <S.Wreath src="/images/wreath.png" alt="loading" />
     </S.Wrapper>
   )
 }
@@ -32,10 +31,10 @@ const S = {
     @keyframes pulse: {
       0%: {
         transform: scale(0.8);
-      },
+      }
       70%: {
         transform: scale(1);
-      },
+      }
       100%: {
         transform: scale(0.8);
       }

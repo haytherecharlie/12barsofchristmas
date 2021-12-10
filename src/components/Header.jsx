@@ -7,7 +7,7 @@ export default function Header() {
       <S.Logo src="/images/wreath.png" />
       <S.Title>
         <span>Twelve</span>
-        <span>Bars<span>.com</span></span>
+        <span>Bars</span>
       </S.Title>
     </S.Wrapper>
   )

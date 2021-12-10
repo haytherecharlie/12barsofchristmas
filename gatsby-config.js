@@ -18,7 +18,7 @@ module.exports = {
         background_color: `#ff2353`,
         theme_color: `#ff2353`,
         display: `minimal-ui`,
-        icon: `src/assets/images/santa.png`, // This path is relative to the root of the site.
+        icon: `static/images/wreath.png`, // This path is relative to the root of the site.
       },
     },
   ],
