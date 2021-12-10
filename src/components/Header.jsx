@@ -1,14 +1,12 @@
-import React from "react"
+import React, { Fragment } from "react"
 import styled from "styled-components"
 
 export default function Header() {
   return (
     <S.Wrapper>
-      <S.Logo src="/images/wreath.png" />
-      <S.Title>
-        <span>Twelve</span>
-        <span>Bars</span>
-      </S.Title>
+      <S.Left>
+        <img src="/images/the12bars-com.png" />
+      </S.Left>
     </S.Wrapper>
   )
 }
@@ -23,25 +21,28 @@ const S = {
     background-color: #ff2353;
     display: flex;
     flex-direction: row;
+    align-items: space-between;
+    justify-content: space-between;
+    padding: 0px 10px;
   `,
-  Logo: styled.img`
-    height: 50px;
-    width: 50px;
-  `,
-  Title: styled.div`
+  Left: styled.div`
     display: flex;
-    height: 100%;
-    font-family: cocogoose;
-    flex-direction: column;
-    color: #fff;
-    align-items: flex-start;
+    flex-direction: row;
+    align-items: center;
     justify-content: center;
-    & > span:last-child {
-        margin-top: -12px;
-        font-size: 24px;
-        & > span {
-            font-size: 10px;
-        }
+    & > img {
+      height: 35px;
+      width: auto;
+    }
+  `,
+  Right: styled.div`
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    & > span {
+      line-height: 20px;
+      color: #FFFFFF;
     }
   `,
 }

@@ -9,10 +9,24 @@ export default function ImageGallery({ setLoading }) {
 
   return (
     <S.Wrapper>
+      <S.Year><div/>XMAS 2021<div/></S.Year>
       <S.Gallery>
         {thumbs.map((thumb, i) => (
           <S.ImageBox
             key={`${thumb.timestamp}${i}`}
+            thumbnail={thumb.data}
+            onClick={() => setSelected(thumb.timestamp)}
+          />
+        ))}
+        {placeholders.map(() => (
+          <S.Placeholder />
+        ))}
+      </S.Gallery>
+      <S.Year><div/>XMAS 2019<div/></S.Year>
+      <S.Gallery>
+        {thumbs.map((thumb, i) => (
+          <S.ImageBox
+            key={`${thumb.timestamp}${i}-2`}
             thumbnail={thumb.data}
             onClick={() => setSelected(thumb.timestamp)}
           />
@@ -34,6 +48,22 @@ const S = {
     flex-direction: column;
     align-items: center;
     justify-content: center;
+    padding-bottom: 200px;
+  `,
+  Year: styled.div`
+    color: #666666;
+    display: flex;
+    flex-drection: row;
+    align-items: center;
+    justify-content: center;
+    margin: 20px 10px 0px 10px;
+    & > div {
+      flex: 1 0 0px;
+      height: 1px;
+      width: 50px;
+      background: #666666;
+      margin: 0px 10px;
+    }
   `,
   Gallery: styled.div`
     display: flex;

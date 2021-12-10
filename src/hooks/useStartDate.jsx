@@ -9,7 +9,8 @@ export default function useStartDate() {
     const now = new Date().getTime()
     const startDate = new Date(START_DATE).getTime()
 
-    setStarted(startDate - now < 1)
+    // setStarted(startDate - now < 1)
+    setStarted(true)
   }, [])
 
   return [started, START_DATE]
